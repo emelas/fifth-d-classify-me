@@ -6,7 +6,7 @@ import json
 import sys
 sys.path.append('../')
 
-from app import evaluate_v2
+from app import evaluate_elias
 from utils import utils
 
 with st.sidebar:
@@ -65,7 +65,7 @@ if uploaded_file:
 
     if st.button('🤖 Classify'):
         with st.spinner('Classifying JSON...'):
-            avg_acc, results = evaluate_v2.iterate_test_cases(test_case_paths=['./temp/temp.json'],return_results=True)
+            avg_acc, results = evaluate_elias.iterate_test_cases(test_case_paths=['./temp/temp.json'],return_results=True)
             
         st.write(results)
         st.write(f"Average accuracy: {avg_acc * 100:.2f}%")
